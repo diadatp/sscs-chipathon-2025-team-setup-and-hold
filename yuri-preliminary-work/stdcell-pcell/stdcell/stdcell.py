@@ -30,6 +30,14 @@ NPLUS_PERIMETER_Y = 230
 NPLUS_PERIMETER_X = 160
 BORDER_TO_NPLUS = BORDER_TO_PPLUS
 
+BORDER_TO_TAP_X = 280
+BORDER_TO_TAP_Y = 230
+TAP_TO_TAP = 400
+TAP_DIFFUSION_X = 790
+TAP_DIFFUSION_Y = 490
+TAP_DIFFUSION_TO_COMP = 20
+TAP_CONTACT_SIZE_XY = 220
+
 
 def round_to_grid(number):
     roundto = 5
@@ -135,7 +143,7 @@ class StdCell(pya.PCellDeclarationHelper):
                 self.cell.shapes(POLY2).insert(pya.Box(poly_top,
                                                        p_row_length,
                                                        poly_bot,
-                                                       p_row_length+GATE_POLY_LENGTH))
+                                                       p_row_length + GATE_POLY_LENGTH))
                 p_row_length += GATE_POLY_LENGTH
                 last_is_gate = True
                 last_is_contact = False
@@ -164,7 +172,6 @@ class StdCell(pya.PCellDeclarationHelper):
                                                         n_row_length + SD_METAL_WIDTH))
                 # contacts
                 for i in range(N_CONTACTS):
-
                     height = NFET_REGION_BOT_Y + ((i + 1) * N_CONTACT_SPACING + i * N_CONTACT_SIZE)
                     print(height, N_CONTACT_SPACING, NFET_REGION_BOT_Y, N_CONTACT_SIZE)
                     self.cell.shapes(CONTACT).insert(pya.Box(height,
@@ -218,7 +225,7 @@ class StdCell(pya.PCellDeclarationHelper):
         self.cell.shapes(NPLUS).insert(pya.Box(
             NFET_REGION_BOT_Y - NPLUS_PERIMETER_Y,
             length - BORDER_TO_NPLUS,
-            NFET_REGION_BOT_Y+N_WIDTH+NPLUS_PERIMETER_Y,
+            NFET_REGION_BOT_Y + N_WIDTH + NPLUS_PERIMETER_Y,
             BORDER_TO_NPLUS
         ))
         # COMP - P-FET
@@ -241,6 +248,43 @@ class StdCell(pya.PCellDeclarationHelper):
         # net labels for power strips
         self.cell.shapes(METAL1_LABEL).insert(pya.Text("vdd", POWER_STRIP_HEIGHT / 2, length / 2))
         self.cell.shapes(METAL1_LABEL).insert(pya.Text("vss", cell_height - POWER_STRIP_HEIGHT / 2, length / 2))
+
+        # substrate taps
+        last_tap_x = length - (TAP_DIFFUSION_X + BORDER_TO_TAP_X)
+        tap_x = BORDER_TO_TAP_X
+        while tap_x < last_tap_x:
+            # draw tap
+            vdd_tap_y = cell_height - BORDER_TO_TAP_Y
+            vss_tap_y = BORDER_TO_TAP_Y + TAP_DIFFUSION_Y
+
+            tap_contact_y_offset = round_to_grid((TAP_DIFFUSION_Y - TAP_CONTACT_SIZE_XY) / 2)
+            tap_contact_x_offset = round_to_grid((TAP_DIFFUSION_X - TAP_CONTACT_SIZE_XY) / 2)
+
+            # doped regions
+            self.cell.shapes(NPLUS).insert(pya.Box(vdd_tap_y, tap_x, vdd_tap_y - TAP_DIFFUSION_Y, tap_x + TAP_DIFFUSION_X))
+            self.cell.shapes(PPLUS).insert(pya.Box(vss_tap_y, tap_x, vss_tap_y - TAP_DIFFUSION_Y, tap_x + TAP_DIFFUSION_X))
+
+            # comp layer
+            self.cell.shapes(COMP).insert(pya.Box(vdd_tap_y - TAP_DIFFUSION_TO_COMP,
+                                                  tap_x + TAP_DIFFUSION_TO_COMP,
+                                                  vdd_tap_y - TAP_DIFFUSION_Y + TAP_DIFFUSION_TO_COMP,
+                                                  tap_x + TAP_DIFFUSION_X - TAP_DIFFUSION_TO_COMP))
+            self.cell.shapes(COMP).insert(pya.Box(vss_tap_y - TAP_DIFFUSION_TO_COMP,
+                                                  tap_x + TAP_DIFFUSION_TO_COMP,
+                                                  vss_tap_y - TAP_DIFFUSION_Y + TAP_DIFFUSION_TO_COMP,
+                                                  tap_x + TAP_DIFFUSION_X - TAP_DIFFUSION_TO_COMP))
+
+            # contacts
+            self.cell.shapes(CONTACT).insert(pya.Box(vdd_tap_y - tap_contact_y_offset,
+                                                     tap_x + tap_contact_x_offset,
+                                                     vdd_tap_y - tap_contact_y_offset - TAP_CONTACT_SIZE_XY,
+                                                     tap_x + tap_contact_x_offset + TAP_CONTACT_SIZE_XY))
+            self.cell.shapes(CONTACT).insert(pya.Box(vss_tap_y - tap_contact_y_offset,
+                                                     tap_x + tap_contact_x_offset,
+                                                     vss_tap_y - tap_contact_y_offset - TAP_CONTACT_SIZE_XY,
+                                                     tap_x + tap_contact_x_offset + TAP_CONTACT_SIZE_XY))
+
+            tap_x += TAP_DIFFUSION_X + TAP_TO_TAP
 
     def transformation_from_shape_impl(self):
         # center on cursor
