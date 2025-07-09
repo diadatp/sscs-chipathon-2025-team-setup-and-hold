@@ -18,7 +18,7 @@ Team *Setup & Hold* proposes to design and characterize a 4-to-1 multiplexer (MU
 - Design and implement MUX4 standard cells at two drive strengths (1X and 2X).
 - Generate complete liberty files for both variants using open source and commercial characterization tools.
 - Contribute finalized, verified cells to the OSU library repository.
-- Demonstrate improved synthesis results using augmented library.
+- Demonstrate improved synthesis results using augmented library (synthesis only, not manufactured).
 
 ### Secondary Goals
 - Compare characterization results across different open-source tools.
