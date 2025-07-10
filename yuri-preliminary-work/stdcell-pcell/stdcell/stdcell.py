@@ -260,8 +260,8 @@ class StdCell(pya.PCellDeclarationHelper):
         self.cell.shapes(METAL1).insert(pya.Box(POWER_STRIP_HEIGHT, length, 0, 0))
         self.cell.shapes(METAL1).insert(pya.Box(cell_height, length, cell_height - POWER_STRIP_HEIGHT, 0))
         # net labels for power strips
-        self.cell.shapes(METAL1_LABEL).insert(pya.Text("vdd", POWER_STRIP_HEIGHT / 2, length / 2))
-        self.cell.shapes(METAL1_LABEL).insert(pya.Text("vss", cell_height - POWER_STRIP_HEIGHT / 2, length / 2))
+        self.cell.shapes(METAL1_LABEL).insert(pya.Text("vss", POWER_STRIP_HEIGHT / 2, length / 2))
+        self.cell.shapes(METAL1_LABEL).insert(pya.Text("vdd", cell_height - POWER_STRIP_HEIGHT / 2, length / 2))
 
         # substrate taps
         last_tap_x = length - (TAP_DIFFUSION_X + BORDER_TO_TAP_X)
