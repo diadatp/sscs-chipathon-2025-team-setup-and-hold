@@ -17,9 +17,11 @@ POWER_STRIP_HEIGHT = 700
 SD_METAL_WIDTH = 250  # source/drain metal width
 START_TO_SD_METAL = 600
 PPLUS_PERIMETER_X = 160
-PPLUS_PERIMETER_Y = 230
-POWER_TO_PPLUS_PERIMETER = 120
+PPLUS_PERIMETER_Y = 160
+POWER_TO_PPLUS_PERIMETER = 190
 BORDER_TO_PPLUS = 290
+PPLUS_EXTRA_HEIGHT = 70
+PPLUS_EXTRA_INSET = 430
 CONTACT_TO_CONTACT_SPACING = 500
 GATE_POLY_TO_SD_METAL_SPACING = 150
 GATE_POLY_TO_GATE_POLY_SPACING = 240
@@ -138,8 +140,8 @@ class StdCell(pya.PCellDeclarationHelper):
                     p_row_length += GATE_POLY_TO_GATE_POLY_SPACING
 
                 # draw poly
-                poly_top = PFET_REGION_TOP_Y + PPLUS_PERIMETER_Y
-                poly_bot = PFET_REGION_TOP_Y - P_WIDTH - PPLUS_PERIMETER_Y
+                poly_top = PFET_REGION_TOP_Y + PPLUS_PERIMETER_Y + PPLUS_EXTRA_HEIGHT
+                poly_bot = PFET_REGION_TOP_Y - P_WIDTH - PPLUS_PERIMETER_Y - PPLUS_EXTRA_HEIGHT
                 self.cell.shapes(POLY2).insert(pya.Box(poly_top,
                                                        p_row_length,
                                                        poly_bot,
@@ -220,6 +222,18 @@ class StdCell(pya.PCellDeclarationHelper):
             length - BORDER_TO_PPLUS,
             pplus_height - 2 * PPLUS_PERIMETER_Y - P_WIDTH,
             BORDER_TO_PPLUS
+        ))
+        self.cell.shapes(PPLUS).insert(pya.Box(
+            pplus_height + PPLUS_EXTRA_HEIGHT,
+            length - BORDER_TO_PPLUS - PPLUS_EXTRA_INSET,
+            pplus_height,
+            BORDER_TO_PPLUS + PPLUS_EXTRA_INSET
+        ))
+        self.cell.shapes(PPLUS).insert(pya.Box(
+            pplus_height - 2 * PPLUS_PERIMETER_Y - P_WIDTH,
+            length - BORDER_TO_PPLUS - PPLUS_EXTRA_INSET,
+            pplus_height - 2 * PPLUS_PERIMETER_Y - P_WIDTH - PPLUS_EXTRA_HEIGHT,
+            BORDER_TO_PPLUS + PPLUS_EXTRA_INSET
         ))
         # NPLUS
         self.cell.shapes(NPLUS).insert(pya.Box(
