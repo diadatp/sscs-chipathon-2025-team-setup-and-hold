@@ -74,7 +74,7 @@ class StdCell(pya.PCellDeclarationHelper):
 
     def display_text_impl(self):
         # Provide a descriptive text for the cell
-        return f"stdcell-template-{self.tracks}t-{self.p_row}p-{self.n_row}n"
+        return f"stdcell-template-{self.tracks}-p{self.p_row}-n{self.n_row}"
 
     def coerce_parameters_impl(self):
         pass
