@@ -23,6 +23,7 @@ Team *Setup & Hold* proposes to design and characterize a 4-to-1 multiplexer (MU
 - Compare characterization results for CCS and NLDM delay models.
 - Document our multi-tool cell characterization workflow.
 - Document our design methodology for future library extensions.
+- Develop a standard cell template PCell for klayout to generate transistors+power rails
 
 ## Technical Approach
 
@@ -54,18 +55,19 @@ Initial investigation has been conducted comparing equivalent MUX4 implementatio
 - **Deliverables**: Decide on architecture for standard cell, work distribution in team
 - **Success Criteria**: Architecture clear, work distributed
 
-### Milestone 1: Design Foundation (July 25)
-- **Deliverables**: Completed schematics for both drive strengths, initial simulation results
+### Milestone 2: Design Foundation (July 25)
+- **Deliverables**: Completed schematics for both drive strengths, initial simulation results, finish standard cell 
+  template PCell (Yuri)
 - **Success Criteria**: Functional verification passed, timing targets met
 
-### Milestone 2: Physical Implementation (August 29)
+### Milestone 3: Physical Implementation (August 29)
 - **Deliverables**: Completed layouts for both cells, clean DRC/LVS results
 - **Success Criteria**: Zero DRC violations, LVS clean, layout design rules satisfied
 
-### Milestone 3: Characterization Complete (September 12)
+### Milestone 4: Characterization Complete (September 12)
 - **Deliverables**: Liberty files from all three characterization tools, comparative analysis
 - **Success Criteria**: Consistent characterization results across tools, liberty files syntax verified
 
-### Milestone 4: Integration and Validation (after chip submission/end of september)
+### Milestone 5: Integration and Validation (after chip submission/end of september)
 - **Deliverables**: Integrated cells in OSU library, synthesis test results, final documentation
 - **Success Criteria**: Successful synthesis with new cells, measurable improvements demonstrated
