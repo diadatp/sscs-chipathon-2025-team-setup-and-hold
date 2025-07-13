@@ -7,6 +7,8 @@ LIB_B_DIR = "../../globalfoundries-pdk-libs-gf180mcu_fd_sc_mcu7t5v0"
 def get_cells(lib_path):
     lib_cells = set()
     for cell in os.listdir(os.path.join(lib_path,"cells")):
+        if "dff" in cell or "lat" in cell or "dl" in cell:
+            continue
         lib_cells.add(cell)
     return lib_cells
 
