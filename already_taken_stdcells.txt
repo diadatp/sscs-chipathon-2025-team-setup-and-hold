@@ -1,0 +1,15 @@
+MUX4
+XOR3
+NAND2
+AOI33
+OAI33
+AOI211
+OAI211
+AOI221
+3-input majority gate
+XNOR3
+OR3
+NOR3
+NAND3
+NAND4
+comparators
