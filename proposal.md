@@ -8,12 +8,12 @@
 
 ## Project Overview
 
-Team *Setup & Hold* proposes to design and characterize a 4-to-1 multiplexer (MUX4) standard cell at two different drive strengths for the OSU GF180MCU 3.3V 12-track standard cell library. This project will enhance the existing OSU library by adding optimized MUX4 cells that will improve synthesis quality for complex digital designs.
+Team *Setup & Hold* proposes to design and characterize an AOI222 standard cell (possibly at multiple drive strengths) for the OSU GF180MCU 3.3V 12-track standard cell library. We also hope to contribute our cell to the upstream library hoping it will improve synthesis quality for digital designs.
 
 ## Project Objectives
 
 ### Primary Goals
-- Design and implement MUX4 standard cells at two drive strengths (1X and 2X).
+- Design and implement AOI222 standard cells, if possible at multiple drive strengths.
 - Generate complete liberty files for both variants using open source and commercial characterization tools.
 - Contribute finalized, verified cells to the OSU library repository.
 - Demonstrate improved synthesis results using augmented library (synthesis only, not manufactured).
@@ -28,18 +28,13 @@ Team *Setup & Hold* proposes to design and characterize a 4-to-1 multiplexer (MU
 ## Technical Approach
 
 ### Cell Design Strategy
-The MUX4 cell will be implemented using (a transmission gate architecture??) optimized for the GF180MCU 3.3V process. Two drive strength variants will be developed:
-- **MUX4_X1**: Standard drive strength for typical loading conditions
-- **MUX4_X2**: High drive strength for heavy loading and critical timing paths
+The AOI222 cell will be implemented using a similar design as the cell in the foundry-provided library.
 
 ### Characterization Methodology
 Liberty file generation will be performed using three open source tools:
 - **CharLib**: Primary characterization engine for timing and power analysis
 - **Libretto**: Cross-validation
 - **lctime**: Cross-validation including visualization of NLDM tables
-
-### Preliminary Research
-Initial investigation has been conducted comparing equivalent MUX4 implementations in the foundry-provided SKY130 PDK and the foundry-provided GF180MCU 5V 7.5T and 9.5T libraries to establish design benchmarks and inspire layout.
 
 ## Team Composition
 ### Team Members
@@ -55,10 +50,10 @@ Initial investigation has been conducted comparing equivalent MUX4 implementatio
 - **Deliverables**: Decide on architecture for standard cell, work distribution in team
 - **Success Criteria**: Architecture clear, work distributed
 
-### Milestone 2: Design Foundation (July 25)
-- **Deliverables**: Completed schematics for both drive strengths, initial simulation results, finish standard cell 
+### Milestone 2: Design Foundation (August 1)
+- **Deliverables**: Completed schematics, initial simulation results, finish standard cell 
   template PCell (Yuri)
-- **Success Criteria**: Functional verification passed, timing targets met
+- **Success Criteria**: Functional verification passed, timing looks reasonable
 
 ### Milestone 3: Physical Implementation (August 29)
 - **Deliverables**: Completed layouts for both cells, clean DRC/LVS results
