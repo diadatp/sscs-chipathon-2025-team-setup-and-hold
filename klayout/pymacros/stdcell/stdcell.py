@@ -15,7 +15,7 @@ N_CONTACT_SIZE = 220
 
 POWER_STRIP_HEIGHT = 700
 SD_METAL_WIDTH = 250  # source/drain metal width
-START_TO_SD_METAL = 600
+START_TO_SD_METAL = 550
 PPLUS_PERIMETER_X = 160
 PPLUS_PERIMETER_Y = 160
 POWER_TO_PPLUS_PERIMETER = 190
@@ -26,6 +26,8 @@ CONTACT_TO_CONTACT_SPACING = 500
 GATE_POLY_TO_SD_METAL_SPACING = 150
 GATE_POLY_TO_GATE_POLY_SPACING = 240
 GATE_POLY_LENGTH = 300
+COMP_TO_METAL = 100
+CONTACT_CONTACT_GAP = 300
 
 POWER_TO_NPLUS_PERIMETER = 120
 NPLUS_PERIMETER_Y = 230
@@ -102,6 +104,7 @@ class StdCell(pya.PCellDeclarationHelper):
 
         # ----------- P_FET -----------
         p_row_length = 0
+        comp_start = BORDER_TO_PPLUS + PPLUS_PERIMETER_X
         last_is_row_start = True
         last_is_contact = False
         last_is_gate = False
@@ -110,7 +113,17 @@ class StdCell(pya.PCellDeclarationHelper):
                 if last_is_row_start:
                     p_row_length += START_TO_SD_METAL
                 if last_is_contact:
-                    p_row_length += CONTACT_TO_CONTACT_SPACING
+                    # finish comp, start a new comp
+                    p_row_length += COMP_TO_METAL
+                    self.cell.shapes(COMP).insert(pya.Box(
+                        PFET_REGION_TOP_Y,
+                        p_row_length,
+                        PFET_REGION_TOP_Y - P_WIDTH,
+                        comp_start
+                    ))
+                    p_row_length += CONTACT_CONTACT_GAP
+                    comp_start = p_row_length
+                    p_row_length += COMP_TO_METAL
                 if last_is_gate:
                     p_row_length += GATE_POLY_TO_SD_METAL_SPACING
 
@@ -151,10 +164,18 @@ class StdCell(pya.PCellDeclarationHelper):
                 last_is_contact = False
 
             last_is_row_start = False
+        # finish comp, start a new comp
+        self.cell.shapes(COMP).insert(pya.Box(
+            PFET_REGION_TOP_Y,
+            p_row_length + COMP_TO_METAL,
+            PFET_REGION_TOP_Y - P_WIDTH,
+            comp_start
+        ))
         p_row_length += START_TO_SD_METAL
 
         # ----------- N_FET -----------
         n_row_length = 0
+        comp_start = BORDER_TO_NPLUS + NPLUS_PERIMETER_X
         last_is_row_start = True
         last_is_contact = False
         last_is_gate = False
@@ -163,7 +184,17 @@ class StdCell(pya.PCellDeclarationHelper):
                 if last_is_row_start:
                     n_row_length += START_TO_SD_METAL
                 if last_is_contact:
-                    n_row_length += CONTACT_TO_CONTACT_SPACING
+                    # finish comp, start a new comp
+                    n_row_length += COMP_TO_METAL
+                    self.cell.shapes(COMP).insert(pya.Box(
+                        NFET_REGION_BOT_Y,
+                        n_row_length,
+                        NFET_REGION_BOT_Y + N_WIDTH,
+                        comp_start
+                    ))
+                    n_row_length += CONTACT_CONTACT_GAP
+                    comp_start = n_row_length
+                    n_row_length += COMP_TO_METAL
                 if last_is_gate:
                     n_row_length += GATE_POLY_TO_SD_METAL_SPACING
 
@@ -205,6 +236,13 @@ class StdCell(pya.PCellDeclarationHelper):
                 last_is_contact = False
 
             last_is_row_start = False
+        # finish nfet comp
+        self.cell.shapes(COMP).insert(pya.Box(
+            NFET_REGION_BOT_Y,
+            n_row_length + COMP_TO_METAL,
+            NFET_REGION_BOT_Y + N_WIDTH,
+            comp_start
+        ))
         n_row_length += START_TO_SD_METAL
 
         length = max(p_row_length, n_row_length)
@@ -241,20 +279,6 @@ class StdCell(pya.PCellDeclarationHelper):
             length - BORDER_TO_NPLUS,
             NFET_REGION_BOT_Y + N_WIDTH + NPLUS_PERIMETER_Y,
             BORDER_TO_NPLUS
-        ))
-        # COMP - P-FET
-        self.cell.shapes(COMP).insert(pya.Box(
-            PFET_REGION_TOP_Y,
-            length - BORDER_TO_PPLUS - PPLUS_PERIMETER_X,
-            PFET_REGION_TOP_Y - P_WIDTH,
-            BORDER_TO_PPLUS + PPLUS_PERIMETER_X
-        ))
-        # COMP - N-FET
-        self.cell.shapes(COMP).insert(pya.Box(
-            NFET_REGION_BOT_Y,
-            length - BORDER_TO_NPLUS - NPLUS_PERIMETER_X,
-            NFET_REGION_BOT_Y + N_WIDTH,
-            BORDER_TO_NPLUS + NPLUS_PERIMETER_X
         ))
         # power strips
         self.cell.shapes(METAL1).insert(pya.Box(POWER_STRIP_HEIGHT, length, 0, 0))
