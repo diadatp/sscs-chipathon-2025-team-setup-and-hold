@@ -55,6 +55,8 @@ Liberty file generation will be performed using three open source tools:
   template PCell (Yuri)
 - **Success Criteria**: Functional verification passed, timing looks reasonable
 
+For Schematic Review: Details are found in the [readme](README.md).
+
 ### Milestone 3: Physical Implementation (August 29)
 - **Deliverables**: Completed layouts for both cells, clean DRC/LVS results
 - **Success Criteria**: Zero DRC violations, LVS clean, layout design rules satisfied
