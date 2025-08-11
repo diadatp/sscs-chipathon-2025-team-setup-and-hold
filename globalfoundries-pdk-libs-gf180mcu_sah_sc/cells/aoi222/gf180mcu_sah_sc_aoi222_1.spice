@@ -1,0 +1,17 @@
+* NGSPICE file created from gf180mcu_sah_sc_aoi222_1.ext - technology: gf180mcuD
+
+.option scale=5n
+
+X0 VDD A2 a_n3268_1558# VDD pfet_03v3 ad=34n pd=0.88m as=18.7n ps=0.45m w=340 l=60
+X1 a_n3268_1558# B1 a_n2938_1558# VDD pfet_03v3 ad=18.7n pd=0.45m as=34n ps=0.88m w=340 l=60
+X2 VSS C2 a_n2412_658# VSS nfet_03v3 ad=17n pd=0.54m as=4.08n ps=0.218m w=170 l=60
+X3 a_n2412_658# C1 Y VSS nfet_03v3 ad=4.08n pd=0.218m as=17n ps=0.54m w=170 l=60
+X4 Y C1 a_n2938_1558# VDD pfet_03v3 ad=18.7n pd=0.45m as=18.7n ps=0.45m w=340 l=60
+X5 a_n3268_1558# A1 VDD VDD pfet_03v3 ad=18.7n pd=0.45m as=34n ps=0.88m w=340 l=60
+X6 Y A2 a_n3268_658# VSS nfet_03v3 ad=17n pd=0.54m as=4.08n ps=0.218m w=170 l=60
+X7 a_n2938_1558# C2 Y VDD pfet_03v3 ad=34n pd=0.88m as=18.7n ps=0.45m w=340 l=60
+X8 a_n3268_658# A1 VSS VSS nfet_03v3 ad=4.08n pd=0.218m as=17n ps=0.54m w=170 l=60
+X9 a_n2938_1558# B2 a_n3268_1558# VDD pfet_03v3 ad=18.7n pd=0.45m as=18.7n ps=0.45m w=340 l=60
+X10 Y B2 a_n2840_658# VSS nfet_03v3 ad=17n pd=0.54m as=4.08n ps=0.218m w=170 l=60
+X11 a_n2840_658# B1 VSS VSS nfet_03v3 ad=4.08n pd=0.218m as=17n ps=0.54m w=170 l=60
+C0 VDD VSS 3.09588f
