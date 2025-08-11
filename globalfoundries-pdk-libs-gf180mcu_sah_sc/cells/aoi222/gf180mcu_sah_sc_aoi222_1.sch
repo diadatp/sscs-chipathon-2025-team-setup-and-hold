@@ -77,7 +77,7 @@ N 470 40 470 60 {lab=VSS}
 N 800 40 800 60 {lab=VSS}
 N -110 60 -20 60 {lab=VSS}
 N 900 -240 920 -240 {lab=Y}
-C {symbols/nfet_03v3.sym} 120 -80 0 0 {name=A2N
+C {symbols/nfet_03v3.sym} 120 -80 0 0 {name=MA2N
 L=0.3u
 W=0.85u
 nf=1
@@ -91,7 +91,7 @@ sa=0 sb=0 sd=0
 model=nfet_03v3
 spiceprefix=X
 }
-C {symbols/nfet_03v3.sym} 120 10 0 0 {name=A1N
+C {symbols/nfet_03v3.sym} 120 10 0 0 {name=MA1N
 L=0.3u
 W=0.85u
 nf=1
@@ -108,7 +108,7 @@ spiceprefix=X
 C {ipin.sym} -20 -160 0 0 {name=p2 lab=A1
 }
 C {opin.sym} 920 -240 0 0 {name=p7 lab=Y}
-C {symbols/pfet_03v3.sym} 100 -510 3 1 {name=A1P
+C {symbols/pfet_03v3.sym} 100 -510 3 1 {name=MA1P
 L=0.3u
 W=1.7u
 nf=1
@@ -122,7 +122,7 @@ sa=0 sb=0 sd=0
 model=pfet_03v3
 spiceprefix=X
 }
-C {symbols/pfet_03v3.sym} 100 -260 3 0 {name=A2P
+C {symbols/pfet_03v3.sym} 100 -260 3 0 {name=MA2P
 L=0.3u
 W=1.7u
 nf=1
@@ -136,7 +136,7 @@ sa=0 sb=0 sd=0
 model=pfet_03v3
 spiceprefix=X
 }
-C {symbols/nfet_03v3.sym} 450 -80 0 0 {name=B2N
+C {symbols/nfet_03v3.sym} 450 -80 0 0 {name=MB2N
 L=0.3u
 W=0.85u
 nf=1
@@ -150,7 +150,7 @@ sa=0 sb=0 sd=0
 model=nfet_03v3
 spiceprefix=X
 }
-C {symbols/nfet_03v3.sym} 450 10 0 0 {name=B1N
+C {symbols/nfet_03v3.sym} 450 10 0 0 {name=MB1N
 L=0.3u
 W=0.85u
 nf=1
@@ -166,7 +166,7 @@ spiceprefix=X
 }
 C {ipin.sym} 350 -160 0 0 {name=p6 lab=B1
 }
-C {symbols/pfet_03v3.sym} 430 -510 3 1 {name=B1P
+C {symbols/pfet_03v3.sym} 430 -510 3 1 {name=MB1P
 L=0.3u
 W=1.7u
 nf=1
@@ -180,7 +180,7 @@ sa=0 sb=0 sd=0
 model=pfet_03v3
 spiceprefix=X
 }
-C {symbols/pfet_03v3.sym} 430 -260 3 0 {name=B2P
+C {symbols/pfet_03v3.sym} 430 -260 3 0 {name=MB2P
 L=0.3u
 W=1.7u
 nf=1
@@ -194,7 +194,7 @@ sa=0 sb=0 sd=0
 model=pfet_03v3
 spiceprefix=X
 }
-C {symbols/nfet_03v3.sym} 780 -80 0 0 {name=C2N
+C {symbols/nfet_03v3.sym} 780 -80 0 0 {name=MC2N
 L=0.3u
 W=0.85u
 nf=1
@@ -208,7 +208,7 @@ sa=0 sb=0 sd=0
 model=nfet_03v3
 spiceprefix=X
 }
-C {symbols/nfet_03v3.sym} 780 10 0 0 {name=C1N
+C {symbols/nfet_03v3.sym} 780 10 0 0 {name=MC1N
 L=0.3u
 W=0.85u
 nf=1
@@ -224,7 +224,7 @@ spiceprefix=X
 }
 C {ipin.sym} 680 -160 0 0 {name=p11 lab=C1
 }
-C {symbols/pfet_03v3.sym} 760 -510 3 1 {name=C1P
+C {symbols/pfet_03v3.sym} 760 -510 3 1 {name=MC1P
 L=0.3u
 W=1.7u
 nf=1
@@ -238,7 +238,7 @@ sa=0 sb=0 sd=0
 model=pfet_03v3
 spiceprefix=X
 }
-C {symbols/pfet_03v3.sym} 760 -260 3 0 {name=C2P
+C {symbols/pfet_03v3.sym} 760 -260 3 0 {name=MC2P
 L=0.3u
 W=1.7u
 nf=1
