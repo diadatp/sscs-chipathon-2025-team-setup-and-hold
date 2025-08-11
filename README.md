@@ -12,3 +12,13 @@ The schematic can be found under [globalfoundries-pdk-libs-gf180mcu_sah_sc/cells
 
 ## Functional Simulation
 The testbed and verification script for functional simulation can be found in the [testbench](testbench) directory.
+
+## Progress
+### Current Sate
+- We have decided on the schematic of the AOI222 we will implement.
+- We have done a functional simulation of the cell. The circuit works, but we haven't really investigated timing.
+- We have an initial LVS and DRC-clean layout.
+
+### Immediate next steps
+- The next step is to characterize it with CharLib, analyze the results and see if and how we can improve our design.
+- We also need to figure out how to integrate our cell in a P&R flow and test the routability of pins.
