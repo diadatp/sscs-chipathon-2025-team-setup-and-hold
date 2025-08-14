@@ -14,4 +14,3 @@ X8 a_n3268_658# A1 VSS VSS nfet_03v3 ad=4.08n pd=0.218m as=17n ps=0.54m w=170 l=
 X9 a_n2938_1558# B2 a_n3268_1558# VDD pfet_03v3 ad=18.7n pd=0.45m as=18.7n ps=0.45m w=340 l=60
 X10 Y B2 a_n2840_658# VSS nfet_03v3 ad=17n pd=0.54m as=4.08n ps=0.218m w=170 l=60
 X11 a_n2840_658# B1 VSS VSS nfet_03v3 ad=4.08n pd=0.218m as=17n ps=0.54m w=170 l=60
-C0 VDD VSS 3.09588f
