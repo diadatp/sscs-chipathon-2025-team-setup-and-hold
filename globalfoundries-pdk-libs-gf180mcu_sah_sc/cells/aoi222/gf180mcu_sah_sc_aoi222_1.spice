@@ -1,16 +1,17 @@
 * NGSPICE file created from gf180mcu_sah_sc_aoi222_1.ext - technology: gf180mcuD
 
-.option scale=5n
+.subckt gf180mcu_sah_sc_aoi222_1 VSS VDD Y A1 A2 B1 B2 C2 C1
+X0 VDD A2 a_n3268_1558# VDD pfet_03v3 ad=0.85p pd=4.4u as=0.4675p ps=2.25u w=1.7u l=0.3u
+X1 a_n3268_1558# B1 a_n2938_1558# VDD pfet_03v3 ad=0.4675p pd=2.25u as=0.85p ps=4.4u w=1.7u l=0.3u
+X2 VSS C2 a_n2412_658# VSS nfet_03v3 ad=0.425p pd=2.7u as=0.102p ps=1.09u w=0.85u l=0.3u
+X3 a_n2412_658# C1 Y VSS nfet_03v3 ad=0.102p pd=1.09u as=0.425p ps=2.7u w=0.85u l=0.3u
+X4 Y C1 a_n2938_1558# VDD pfet_03v3 ad=0.4675p pd=2.25u as=0.4675p ps=2.25u w=1.7u l=0.3u
+X5 a_n3268_1558# A1 VDD VDD pfet_03v3 ad=0.4675p pd=2.25u as=0.85p ps=4.4u w=1.7u l=0.3u
+X6 Y A2 a_n3268_658# VSS nfet_03v3 ad=0.425p pd=2.7u as=0.102p ps=1.09u w=0.85u l=0.3u
+X7 a_n2938_1558# C2 Y VDD pfet_03v3 ad=0.85p pd=4.4u as=0.4675p ps=2.25u w=1.7u l=0.3u
+X8 a_n3268_658# A1 VSS VSS nfet_03v3 ad=0.102p pd=1.09u as=0.425p ps=2.7u w=0.85u l=0.3u
+X9 a_n2938_1558# B2 a_n3268_1558# VDD pfet_03v3 ad=0.4675p pd=2.25u as=0.4675p ps=2.25u w=1.7u l=0.3u
+X10 Y B2 a_n2840_658# VSS nfet_03v3 ad=0.425p pd=2.7u as=0.102p ps=1.09u w=0.85u l=0.3u
+X11 a_n2840_658# B1 VSS VSS nfet_03v3 ad=0.102p pd=1.09u as=0.425p ps=2.7u w=0.85u l=0.3u
+.ends
 
-X0 VDD A2 a_n3268_1558# VDD pfet_03v3 ad=34n pd=0.88m as=18.7n ps=0.45m w=340 l=60
-X1 a_n3268_1558# B1 a_n2938_1558# VDD pfet_03v3 ad=18.7n pd=0.45m as=34n ps=0.88m w=340 l=60
-X2 VSS C2 a_n2412_658# VSS nfet_03v3 ad=17n pd=0.54m as=4.08n ps=0.218m w=170 l=60
-X3 a_n2412_658# C1 Y VSS nfet_03v3 ad=4.08n pd=0.218m as=17n ps=0.54m w=170 l=60
-X4 Y C1 a_n2938_1558# VDD pfet_03v3 ad=18.7n pd=0.45m as=18.7n ps=0.45m w=340 l=60
-X5 a_n3268_1558# A1 VDD VDD pfet_03v3 ad=18.7n pd=0.45m as=34n ps=0.88m w=340 l=60
-X6 Y A2 a_n3268_658# VSS nfet_03v3 ad=17n pd=0.54m as=4.08n ps=0.218m w=170 l=60
-X7 a_n2938_1558# C2 Y VDD pfet_03v3 ad=34n pd=0.88m as=18.7n ps=0.45m w=340 l=60
-X8 a_n3268_658# A1 VSS VSS nfet_03v3 ad=4.08n pd=0.218m as=17n ps=0.54m w=170 l=60
-X9 a_n2938_1558# B2 a_n3268_1558# VDD pfet_03v3 ad=18.7n pd=0.45m as=18.7n ps=0.45m w=340 l=60
-X10 Y B2 a_n2840_658# VSS nfet_03v3 ad=17n pd=0.54m as=4.08n ps=0.218m w=170 l=60
-X11 a_n2840_658# B1 VSS VSS nfet_03v3 ad=4.08n pd=0.218m as=17n ps=0.54m w=170 l=60
