@@ -1,4 +1,4 @@
-default: lef spice
+default: lef spice lib
 
 lef: globalfoundries-pdk-libs-gf180mcu_sah_sc/cells/aoi222/gf180mcu_sah_sc_aoi222_1.lef
 spice: globalfoundries-pdk-libs-gf180mcu_sah_sc/cells/aoi222/gf180mcu_sah_sc_aoi222_1.spice
@@ -9,5 +9,5 @@ globalfoundries-pdk-libs-gf180mcu_sah_sc/cells/aoi222/gf180mcu_sah_sc_aoi222_1.l
 globalfoundries-pdk-libs-gf180mcu_sah_sc/cells/aoi222/gf180mcu_sah_sc_aoi222_1.spice: globalfoundries-pdk-libs-gf180mcu_sah_sc/cells/aoi222/gf180mcu_sah_sc_aoi222_1.gds scripts/gds_to_spice.tcl
 	magic -dnull -noconsole scripts/gds_to_spice.tcl aoi222
 
-lib: globalfoundries-pdk-libs-gf180mcu_sah_sc/cells/aoi222/gf180mcu_sah_sc_aoi222_1.spice
-	charlib run liberty/
+lib: globalfoundries-pdk-libs-gf180mcu_sah_sc/cells/aoi222/gf180mcu_sah_sc_aoi222_1.spice liberty/gf180mcu_sah_sc_aoi222_1.yaml
+	charlib run --multithreaded liberty/
