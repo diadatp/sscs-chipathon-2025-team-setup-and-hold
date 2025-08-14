@@ -1,0 +1,32 @@
+settings:
+    lib_name:           gf180mcu_sah_sc_aoi222_1
+    units:
+        time:               ns
+        voltage:            V
+        current:            uA
+        pulling_resistance: kOhm
+        leakage_power:      nW
+        capacitive_load:    pF
+        energy:             fJ
+    named_nodes:
+        vdd:
+            name:       VDD
+            voltage:    3.3
+        vss:
+            name:       VSS
+            voltage:    0
+    cell_defaults:
+        models:
+            - /foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice typical
+            - /foss/pdks/gf180mcuD/libs.tech/ngspice/design.ngspice
+        slews:  [0.001, 0.005, 0.01, 0.05, 0.1, 0.5, 1]
+        loads:  [0.005, 0.01, 0.025, 0.05, 0.1]
+        setup_time_range: [0.01, 5]
+        hold_time_range: [0.01, 5]
+        plots:  none
+cells:
+    gf180mcu_sah_sc_aoi222_1:
+        netlist:    globalfoundries-pdk-libs-gf180mcu_sah_sc/cells/aoi222/gf180mcu_sah_sc_aoi222_1.spice
+        inputs:     [A1,A2,B1,B2,C1,C2]
+        outputs:    ['Y']
+        functions:  [Y=~((A1&A2)|(B1&B2)|(C1&C2))]
