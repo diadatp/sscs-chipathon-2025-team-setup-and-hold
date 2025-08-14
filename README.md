@@ -3,6 +3,7 @@ SSCS Chipathon 2025 repository for the Setup &amp; Hold team.
 
 We plan to do an AOI222 standard cell in X1 drive strength for the 12t OSU library.
 
+## Links
 Proposal: [proposal.md](proposal.md)
 
 Progress Tracker: [progress.md](progress.md)
