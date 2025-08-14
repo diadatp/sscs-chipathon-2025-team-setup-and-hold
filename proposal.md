@@ -45,6 +45,8 @@ Liberty file generation will be performed using three open source tools:
 - **shiriams**: 
 
 ## Milestones and Timeline
+Note: We haven't updated the dates in here as it gets more clear what is expected when. 
+Please check our [progress tracker](progress.md) for a more up-to-date version.
 
 ### Milestone 1: Detailed planning (July 15)
 - **Deliverables**: Decide on architecture for standard cell, work distribution in team
@@ -54,8 +56,6 @@ Liberty file generation will be performed using three open source tools:
 - **Deliverables**: Completed schematics, initial simulation results, finish standard cell 
   template PCell (Yuri)
 - **Success Criteria**: Functional verification passed, timing looks reasonable
-
-For Schematic Review: Details are found in the [readme](README.md).
 
 ### Milestone 3: Physical Implementation (August 29)
 - **Deliverables**: Completed layouts for both cells, clean DRC/LVS results
