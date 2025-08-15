@@ -8,6 +8,7 @@
 - August 11: layout is LVS and DRC clean
 - August 11: extraction of spice and lef files automated
 - August 15: Initial version of liberty file using charlib. We got a first version, but we'll have to investigate what are good parameters.
+- August 15: Integration PR submitted: https://github.com/sscs-ose/sscs-chipathon-2025/pull/120
 
 ## Next steps
 - As soon as possible: Figure out reasonable parameters for liberty.
