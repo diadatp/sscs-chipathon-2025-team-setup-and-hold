@@ -19,8 +19,8 @@ settings:
         models:
             - /foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice typical
             - /foss/pdks/gf180mcuD/libs.tech/ngspice/design.ngspice
-        slews:  [0.0705301, 0.301092, 1.28536, 5.48719, 23.4247, 100]
-        loads:  [0.00134182, 0.00759507, 0.0429902, 0.243336, 1.37735, 7.79615]
+        slews: [ 0.0787954, 0.207587, 0.546891, 1.44079, 3.79577, 10 ]
+        loads: [ 0.00238547, 0.00757851, 0.0240766, 0.0764901, 0.243005, 0.772017 ]
         setup_time_range: [0.01, 5]
         hold_time_range: [0.01, 5]
         plots:  none

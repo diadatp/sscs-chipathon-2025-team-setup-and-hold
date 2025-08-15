@@ -10,8 +10,8 @@ Progress Tracker: [progress.md](progress.md)
 
 Schematic, Layout, LEF, Spice: [globalfoundries-pdk-libs-gf180mcu_sah_sc/cells/aoi222](globalfoundries-pdk-libs-gf180mcu_sah_sc/cells/aoi222/).
 
-CharLib/.lib file: Automated using `make lib`. We're still figuring out what parameters for slew/load are reasonable 
-and we've run into some issues with charlib performance.
+CharLib/.lib file: Automated using `make lib`. We're still figuring out what parameters for slew/load are reasonable.
+Results using the parameters from the AOI22 cell can be found here: [globalfoundries-pdk-libs-gf180mcu_sah_sc/cells/aoi222](globalfoundries-pdk-libs-gf180mcu_sah_sc/cells/aoi222/)
 
 Functional Simulation: [testbench/](testbench)
 
